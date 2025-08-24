@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Two-Factor Code · GWHS Cybersecurity Club{% endblock %}
+{% block content %}
+<section class="container narrow">
+  <h1>Two-Factor Verification</h1>
+  <form method="post" class="form">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <label>Authenticator code <input type="text" name="token" inputmode="numeric" pattern="[0-9]{6}" required></label>
+    <button class="btn btn-primary" type="submit">Verify</button>
+  </form>
+</section>
+{% endblock %}

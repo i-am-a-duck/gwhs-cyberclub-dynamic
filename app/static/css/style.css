@@ -1,0 +1,39 @@
+/* Elegant dark theme */
+:root{
+  --bg: #0b1020;
+  --surface: #11162a;
+  --card: #151b31;
+  --text: #e6ecff;
+  --muted: #a8b3cf;
+  --accent: #0d9488;
+  --maxw: 1100px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:ui-sans-serif,system-ui,Segoe UI,Roboto,Ubuntu,'Noto Sans',sans-serif;line-height:1.6}
+a{color:#93c5fd} a:hover{opacity:.9}
+.container{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 1rem}
+.site-header{position:sticky;top:0;background:rgba(17,22,42,.8);backdrop-filter:blur(6px);border-bottom:1px solid #1f2a44;z-index:10}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:.8rem 0}
+.brand{display:flex;gap:.6rem;align-items:center;color:var(--text);text-decoration:none;font-weight:700}
+.logo{width:28px;height:28px}
+nav a{color:var(--text);text-decoration:none;margin-left:.75rem;padding:.45rem .6rem;border-radius:.6rem}
+nav a:hover{background:rgba(255,255,255,.06)}
+.hero{background:linear-gradient(180deg,rgba(30,58,138,.35),rgba(13,148,136,.2));padding:5rem 0 3rem;border-bottom:1px solid #1f2a44}
+.hero h1{font-size:clamp(1.8rem,4vw,2.6rem);margin:0 0 .5rem}
+.hero p{max-width:55ch;color:var(--muted)}
+.hero-actions{display:flex;gap:.75rem;flex-wrap:wrap}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin:2rem auto}
+.card{background:var(--card);border:1px solid #1f2a44;border-radius:1rem;padding:1rem;box-shadow:0 10px 20px rgba(0,0,0,.15)}
+.btn{display:inline-block;border:1px solid #2a3558;padding:.6rem .9rem;border-radius:.7rem;text-decoration:none;color:var(--text)}
+.btn-primary{background:var(--accent);border-color:transparent;color:#0b1020}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem}
+.site-footer{margin-top:3rem;border-top:1px solid #1f2a44;background:var(--surface)}
+.footer-inner{display:flex;justify-content:space-between;gap:1rem;padding:1rem 0;flex-wrap:wrap}
+.footer-meta{padding:.25rem 0 1rem;color:var(--muted)}
+.narrow{max-width:720px}
+.form label{display:block;margin:.8rem 0}
+.form input,.form textarea,.form select{width:100%;padding:.6rem;border-radius:.6rem;border:1px solid #2a3558;background:#0e1426;color:var(--text)}
+.form button{margin-top:.5rem}
+.embed-wrap{border:1px solid #1f2a44;border-radius:.8rem;overflow:hidden}
+.muted{color:var(--muted)}
+.list{margin:.25rem 0 .25rem 1rem}

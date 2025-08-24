@@ -1,0 +1,42 @@
+services:
+  web:
+    build: .
+    environment:
+      - SECRET_KEY=${SECRET_KEY}
+      - DATABASE_URL=postgresql://cyber:cyber@db:5432/cyberclub
+    depends_on:
+      - db
+    networks: [appnet]
+    expose:
+      - "8000"
+
+  db:
+    image: postgres:16
+    environment:
+      - POSTGRES_USER=cyber
+      - POSTGRES_PASSWORD=cyber
+      - POSTGRES_DB=cyberclub
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+    networks: [appnet]
+
+  caddy:
+    image: caddy:2
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddydata:/data
+      - caddyconfig:/config
+    depends_on:
+      - web
+    networks: [appnet]
+
+networks:
+  appnet:
+
+volumes:
+  dbdata:
+  caddydata:
+  caddyconfig:

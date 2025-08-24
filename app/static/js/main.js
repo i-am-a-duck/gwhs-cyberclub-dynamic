@@ -1,0 +1,1 @@
+console.log('GWHS Cybersecurity Club dynamic site loaded');

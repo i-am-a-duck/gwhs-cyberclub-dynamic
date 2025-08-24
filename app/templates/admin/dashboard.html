@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Admin · Dashboard{% endblock %}
+{% block content %}
+<section class="container">
+  <h1>Dashboard</h1>
+  <div class="grid">
+    <article class="card"><h2>Events</h2><p>{{ stats.events }} items</p><a class="btn btn-primary" href="{{ url_for('admin.events_new') }}">New event</a></article>
+    <article class="card"><h2>Posts</h2><p>{{ stats.posts }} items</p><a class="btn btn-primary" href="{{ url_for('admin.posts_new') }}">New post</a></article>
+    <article class="card"><h2>Resources</h2><p>{{ stats.resources }} items</p><a class="btn btn-primary" href="{{ url_for('admin.resources_new') }}">New resource</a></article>
+    <article class="card"><h2>Users</h2><p>{{ stats.users }} total</p></article>
+  </div>
+  <p><a class="btn" href="{{ url_for('auth.logout') }}">Log out</a></p>
+</section>
+{% endblock %}

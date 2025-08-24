@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Admin Login · GWHS Cybersecurity Club{% endblock %}
+{% block content %}
+<section class="container narrow">
+  <h1>Admin Login</h1>
+  <form method="post" class="form">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <label>Email <input type="email" name="email" required autocomplete="username"></label>
+    <label>Password <input type="password" name="password" required autocomplete="current-password"></label>
+    <button class="btn btn-primary" type="submit">Sign in</button>
+  </form>
+</section>
+{% endblock %}

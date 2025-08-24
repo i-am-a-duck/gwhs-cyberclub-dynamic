@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}Home · GWHS Cybersecurity Club{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="container">
+    <h1>Learn ethical hacking. Build real skills. Compete together.</h1>
+    <p>Explore CTFs and cyber defense — the right way and by the rules.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="{{ url_for('public.join') }}">Join the Club</a>
+      <a class="btn" href="{{ url_for('public.events') }}">See Events</a>
+    </div>
+  </div>
+</section>
+
+<section class="cards container">
+  <article class="card">
+    <h2>Upcoming Meeting</h2>
+    {% if next_event %}
+      <p>{{ next_event.start.strftime("%a %b %d, %I:%M %p") }} · {{ next_event.location or "Room TBD" }}</p>
+    {% else %}
+      <p>No upcoming events yet. Check back soon!</p>
+    {% endif %}
+  </article>
+  <article class="card">
+    <h2>Latest Posts</h2>
+    {% if posts %}
+      <ul class="list">
+        {% for p in posts %}
+          <li><strong>{{ p.title }}</strong> <small>({{ p.published_at.strftime("%Y-%m-%d") }})</small></li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>Stay tuned for write-ups and notes.</p>
+    {% endif %}
+  </article>
+  <article class="card">
+    <h2>New to cyber?</h2>
+    <p>Start with picoCTF, then TryHackMe or Hack The Box for hands-on labs.</p>
+    <a class="btn" href="{{ url_for('public.resources') }}">Resource guide</a>
+  </article>
+</section>
+{% endblock %}

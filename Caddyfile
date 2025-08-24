@@ -1,0 +1,15 @@
+# Replace example.com with your domain.
+example.com {
+  encode zstd gzip
+  @static {
+    path /static/*
+  }
+  handle @static {
+    root * /app/app/static
+    file_server
+  }
+  reverse_proxy web:8000
+  header {
+    Permissions-Policy "interest-cohort=()"
+  }
+}

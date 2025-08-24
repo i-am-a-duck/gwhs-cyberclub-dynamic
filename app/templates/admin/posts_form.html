@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}{{ "Edit" if post else "New" }} Post{% endblock %}
+{% block content %}
+<section class="container narrow">
+  <h1>{{ "Edit" if post else "New" }} Post</h1>
+  <form method="post" class="form">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <label>Title <input name="title" required value="{{ post.title if post else '' }}"></label>
+    <label>Slug <input name="slug" placeholder="auto-from-title" value="{{ post.slug if post else '' }}"></label>
+    <label>Body <textarea name="body" rows="10">{{ post.body if post else "" }}</textarea></label>
+    <button class="btn btn-primary" type="submit">Save</button>
+  </form>
+</section>
+{% endblock %}

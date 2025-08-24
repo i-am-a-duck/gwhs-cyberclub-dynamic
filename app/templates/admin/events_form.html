@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}{{ "Edit" if ev else "New" }} Event{% endblock %}
+{% block content %}
+<section class="container narrow">
+  <h1>{{ "Edit" if ev else "New" }} Event</h1>
+  <form method="post" class="form">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <label>Title <input name="title" required value="{{ ev.title if ev else '' }}"></label>
+    <label>Start (ISO) <input name="start" required placeholder="2025-09-02T15:45:00" value="{{ ev.start.isoformat() if ev else '' }}"></label>
+    <label>End (ISO) <input name="end" placeholder="2025-09-02T16:45:00" value="{{ ev.end.isoformat() if ev and ev.end else '' }}"></label>
+    <label>Location <input name="location" value="{{ ev.location if ev else '' }}"></label>
+    <label>Signup URL <input name="signup" value="{{ ev.signup if ev else '' }}"></label>
+    <label>Gallery URL <input name="gallery" value="{{ ev.gallery if ev else '' }}"></label>
+    <label>Notes <textarea name="notes">{{ ev.notes if ev else "" }}</textarea></label>
+    <button class="btn btn-primary" type="submit">Save</button>
+  </form>
+</section>
+{% endblock %}

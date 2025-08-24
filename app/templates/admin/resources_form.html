@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}{{ "Edit" if res else "New" }} Resource{% endblock %}
+{% block content %}
+<section class="container narrow">
+  <h1>{{ "Edit" if res else "New" }} Resource</h1>
+  <form method="post" class="form">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <label>Title <input name="title" required value="{{ res.title if res else '' }}"></label>
+    <label>URL <input name="url" required value="{{ res.url if res else '' }}"></label>
+    <label>Tier
+      <select name="tier">
+        {% set t = res.tier if res else "" %}
+        <option value="">(none)</option>
+        <option value="beginner" {{ "selected" if t=="beginner" else "" }}>beginner</option>
+        <option value="intermediate" {{ "selected" if t=="intermediate" else "" }}>intermediate</option>
+        <option value="advanced" {{ "selected" if t=="advanced" else "" }}>advanced</option>
+        <option value="community" {{ "selected" if t=="community" else "" }}>community</option>
+      </select>
+    </label>
+    <button class="btn btn-primary" type="submit">Save</button>
+  </form>
+</section>
+{% endblock %}

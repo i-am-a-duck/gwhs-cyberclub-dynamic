@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+.venv/
+.env
+instance/
+.mypy_cache/
+.pytest_cache/
+node_modules/
+dist/

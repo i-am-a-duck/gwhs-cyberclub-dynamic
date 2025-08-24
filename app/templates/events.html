@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}Events · GWHS Cybersecurity Club{% endblock %}
+{% block content %}
+<section class="container">
+  <h1>Events</h1>
+  <h2>Upcoming</h2>
+  <div class="grid">
+    {% for e in upcoming %}
+    <article class="card">
+      <h3>{{ e.title }}</h3>
+      <p>{{ e.start.strftime("%a %b %d, %I:%M %p") }}{% if e.end %} – {{ e.end.strftime("%I:%M %p") }}{% endif %} · {{ e.location or "Room TBD" }}</p>
+      {% if e.notes %}<p>{{ e.notes }}</p>{% endif %}
+      {% if e.signup %}<a class="btn btn-primary" href="{{ e.signup }}">Sign up</a>{% endif %}
+      {% if e.gallery %}<a class="btn" href="{{ e.gallery }}">Photos</a>{% endif %}
+    </article>
+    {% else %}
+    <p>No upcoming events.</p>
+    {% endfor %}
+  </div>
+
+  <h2>Past</h2>
+  <div class="grid">
+    {% for e in past %}
+    <article class="card">
+      <h3>{{ e.title }}</h3>
+      <p>{{ e.start.strftime("%a %b %d, %I:%M %p") }}{% if e.end %} – {{ e.end.strftime("%I:%M %p") }}{% endif %} · {{ e.location or "Room TBD" }}</p>
+      {% if e.gallery %}<a class="btn" href="{{ e.gallery }}">Photos</a>{% endif %}
+    </article>
+    {% else %}
+    <p>No past events yet.</p>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}
