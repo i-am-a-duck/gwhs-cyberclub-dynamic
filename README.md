@@ -33,6 +33,16 @@ python run.py
 # open http://localhost:8000
 ```
 
+## second time run(no Docker)
+    .\.venv\Scripts\Activate
+
+    $env:FLASK_APP = "run.py"
+$env:ENV = "dev"               # 本地调试时关闭 Secure Cookie
+# 如果你还没在 __init__.py 里写默认 SQLite 路径，可以额外指定数据库：
+# $env:DATABASE_URL = "sqlite:///" + ($pwd.Path + "\instance\app.db").Replace('\','/')
+
+    python run.py
+
 ## Security choices
 
 - Password hashing (Werkzeug), cookies Secure/HttpOnly/SameSite.

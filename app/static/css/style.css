@@ -37,3 +37,203 @@ nav a:hover{background:rgba(255,255,255,.06)}
 .embed-wrap{border:1px solid #1f2a44;border-radius:.8rem;overflow:hidden}
 .muted{color:var(--muted)}
 .list{margin:.25rem 0 .25rem 1rem}
+
+
+
+
+/* --- About page: elegant, OpenAI-like aesthetics --- */
+
+/* Hero with animated subtle grid */
+.about-hero{
+  position:relative;
+  padding:6rem 0 4rem;
+  overflow:hidden;
+  border-bottom:1px solid #1f2a44;
+  background: radial-gradient(1200px 600px at 20% -20%, rgba(13,148,136,.15), transparent 60%),
+              radial-gradient(1000px 500px at 80% 0%, rgba(30,58,138,.18), transparent 60%);
+}
+.eyebrow{letter-spacing:.12em; text-transform:uppercase; color:#94a3b8; font-size:.8rem; margin:0 0 .6rem}
+.gradient-title{
+  display: inline-block;
+  margin:.2rem 0 1rem;
+  font-size:clamp(2.1rem,5vw,3.2rem);
+  line-height:1.15;
+  padding-bottom: 2rem;
+  background: linear-gradient(90deg, #93c5fd, #22d3ee);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+.gradient-title .thin{font-weight:400; opacity:.9}
+.subhead{max-width:60ch; color:var(--muted)}
+
+/* animated grid sheet */
+.hero-grid{
+  position:absolute; inset:0; opacity:.25; pointer-events:none;
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,.05) 1px, transparent 1px);
+  background-size: 48px 48px, 48px 48px;
+  transform: translateZ(0);
+  animation: gridFloat 22s linear infinite;
+}
+@keyframes gridFloat{
+  from{transform:translateY(0)}
+  to{transform:translateY(-48px)}
+}
+
+/* Sections & cards */
+.section{padding:3rem 0}
+.section-title{font-size:1.35rem; margin:0 0 1rem}
+.split{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1rem}
+.grid-3{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem}
+.grid-2{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1rem}
+.card{background:var(--card); border:1px solid #1f2a44; border-radius:1rem; padding:1rem}
+.callout{border-color:#244; background:linear-gradient(180deg, rgba(13,148,136,.08), rgba(30,58,138,.05));}
+.lift{transition:transform .45s cubic-bezier(.2,.8,.2,1), box-shadow .45s}
+.lift:hover{transform:translateY(-4px); box-shadow:0 14px 34px rgba(0,0,0,.25)}
+.person h4{margin:.2rem 0 .25rem}
+.badge{
+  display:inline-block; padding:.15rem .5rem; border-radius:.5rem;
+  border:1px solid #2a3558; margin-bottom:.5rem; font-size:.8rem; opacity:.9
+}
+
+/* Lists with icons via pseudo-elements */
+.checklist, .banlist{margin:.5rem 0 0 0; padding:0; list-style:none}
+.checklist li, .banlist li{position:relative; padding-left:1.5rem; margin:.4rem 0}
+.checklist li::before{
+  content:"✓"; position:absolute; left:0; top:.1rem; color:#22d3ee; opacity:.9
+}
+.banlist li::before{
+  content:"×"; position:absolute; left:0; top:.1rem; color:#fca5a5; opacity:.9
+}
+.mono{font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color:#cbd5e1}
+
+/* Reveal on scroll */
+.reveal{opacity:0; transform:translateY(12px); transition:opacity .7s ease, transform .8s ease}
+.reveal.in{opacity:1; transform:translateY(0)}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .hero-grid{animation:none}
+  .reveal{transition:none}
+  .lift{transition:none}
+}
+
+/* --- Footer --- */
+.site-footer{
+  background: #0f172a;
+  border-top: 1px solid #1f2937;
+  padding: 2rem 0;
+  margin-top: 4rem;
+  text-align:center;
+}
+.site-footer .brand{font-weight:600; font-size:1.1rem; margin-bottom:.5rem}
+.site-footer .footer-nav{margin:.5rem 0}
+.site-footer .footer-nav a{
+  margin:0 .6rem; color:#94a3b8; font-size:.9rem; transition:color .3s
+}
+.site-footer .footer-nav a:hover{color:#22d3ee}
+.site-footer .small{font-size:.75rem; margin-top:.6rem; color:#64748b}
+
+/* --- Policies page cards --- */
+.policy{margin:1rem 0; padding:1.2rem}
+.policy h2{margin-top:0; font-size:1.15rem; color:#38bdf8}
+.policy p{margin:.5rem 0}
+/* --- Minimal Footer --- */
+.small-footer{
+  background:#0f172a;
+  border-top:1px solid #1f2937;
+  padding:1rem 0;
+  margin-top:2rem;
+  text-align:center;
+  font-size:.85rem;
+}
+.small-footer .footer-nav a{
+  margin:0 .8rem;
+  color:#94a3b8;
+  font-size:.85rem;
+  transition:color .3s;
+}
+.small-footer .footer-nav a:hover{color:#22d3ee}
+.small-footer .tiny{font-size:.7rem; margin-top:.4rem; color:#64748b}
+/* === Hero 顶角斜体标语 === */
+.hero-slogan{
+  position:absolute; top:1.25rem; right:1rem;
+  transform:rotate(-8deg);
+  font-style:italic; text-align:right;
+  font-weight:600; line-height:1.1;
+  font-size:clamp(1rem,2.2vw,1.25rem);
+  letter-spacing:.02em; pointer-events:none; /* 不挡住其它交互 */
+}
+.hero-slogan .we, .hero-slogan .you{ color:#94a3b8; }
+.hero-slogan .verb{
+  display:inline-block; position:relative; margin:0 .35rem;
+  color:#e2e8f0;
+  min-width:7.5ch; /* 预留宽度避免跳动 */
+}
+
+/* 闪烁 + 发光 */
+@keyframes verbFlash {
+  0% { opacity:1; text-shadow:none; filter:none; }
+  40% { opacity:.35; }
+  55% { opacity:1; text-shadow:0 0 6px rgba(34,211,238,.9), 0 0 18px rgba(147,197,253,.7); filter:brightness(1.15); }
+  100% { opacity:1; text-shadow:none; filter:none; }
+}
+.verb.flash{ animation:verbFlash .8s ease both; }
+
+/* 遮挡切片（glitch 风格），只在切换瞬间出现 */
+.verb.glitch::after{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(90deg, rgba(34,211,238,.35), rgba(147,197,253,.15));
+  mix-blend-mode:screen; opacity:.65;
+  animation:slice .45s steps(2,end) forwards;
+}
+@keyframes slice{
+  0%   { clip-path: polygon(0 0,100% 0,100% 28%,0 40%); }
+  50%  { clip-path: polygon(0 55%,100% 45%,100% 65%,0 75%); }
+  100% { clip-path: polygon(0 80%,100% 70%,100% 100%,0 100%); }
+}
+
+/* 降级：减少动画偏好时，关闭切片与闪烁 */
+@media (prefers-reduced-motion: reduce){
+  .verb.flash{ animation:none }
+  .verb.glitch::after{ display:none }
+}
+/* 让标语相对标题块定位 */
+.hero-head{ position: relative; }
+
+/* 斜着 45°，贴在标题右侧 */
+.hero-slogan{
+   position: absolute;
+  right: -0vw;   /* 根据屏幕大小微调，让它“挨着 e” */
+  top: 2rem;   /* 稍微下移，避免压住标题 */
+
+ transform: rotate(-45deg);   /* 固定斜着 */
+  transform-origin: left center;
+
+  font-style: italic;
+  text-align: left;
+  font-weight: 600;
+  line-height: 1.08;
+  font-size: clamp(.95rem, 2.0vw, 1.2rem);
+  letter-spacing: .02em;
+  pointer-events: none;
+  filter: drop-shadow(0 6px 10px rgba(0,0,0,.35));
+}
+
+.hero-slogan .we, .hero-slogan .you { color:#94a3b8; }
+.hero-slogan .verb{
+  display:inline-block; position:relative; margin:0 .35rem;
+  color:#e2e8f0;
+  min-width:7.5ch; /* 预留宽度避免换词时跳动 */
+}
+
+/* 窄屏时避免遮挡标题，自动收起或换位 */
+@media (max-width: 900px){
+  .hero-slogan{
+    right: -3rem; top: .5rem; transform: rotate(-30deg);
+    opacity:.65;
+  }
+}
+@media (max-width: 640px){
+  .hero-slogan{ display:none; } /* 手机上隐藏，避免挤压 */
+}

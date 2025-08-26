@@ -8,6 +8,7 @@ from flask_limiter.util import get_remote_address
 from flask_talisman import Talisman
 from werkzeug.middleware.proxy_fix import ProxyFix
 from flask_wtf.csrf import CSRFProtect, generate_csrf
+from datetime import datetime 
 import os
 
 db = SQLAlchemy()
@@ -17,6 +18,12 @@ migrate = Migrate()
 
 def create_app():
     app = Flask(__name__, template_folder="templates", static_folder="static")
+
+    import os as _os
+    _os.makedirs(app.instance_path, exist_ok=True)
+
+    default_sqlite = f"sqlite:///{_os.path.join(app.instance_path, 'app.db').replace('\\', '/')}"
+
     app.config.from_mapping(
         SECRET_KEY=os.environ.get("SECRET_KEY", "dev-not-secure"),
         SQLALCHEMY_DATABASE_URI=os.environ.get("DATABASE_URL", "sqlite:///instance/app.db").replace("postgres://", "postgresql://"),
@@ -53,6 +60,8 @@ def create_app():
         'frame-ancestors': "'none'",
         'base-uri': "'self'",
         'form-action': "'self'",
+        'frame-src': "'self' https://docs.google.com",
+        'child-src': "'self' https://docs.google.com",
     }
     Talisman(app, content_security_policy=csp, force_https=False)
 
@@ -68,7 +77,6 @@ def create_app():
 
     @app.context_processor
     def inject_now():
-        import datetime as _dt
-        return {"year_now": _dt.datetime.now().year}
+        return {"now": datetime.utcnow()}
 
     return app

@@ -1,16 +1,113 @@
 {% extends "base.html" %}
 {% block title %}About · GWHS Cybersecurity Club{% endblock %}
 {% block content %}
-<section class="container">
-  <h1>About</h1>
-  <p><strong>Mission:</strong> Build a friendly, compliant learning community for ethical hacking and cyber defense.</p>
-  <h2>Advisor & Officers</h2>
-  <ul class="list">
-    <li>Faculty Advisor: <em>TBD</em></li>
-    <li>President (Web Lead): <em>TBD</em></li>
-    <li>Content Lead: <em>TBD</em></li>
-    <li>Media Lead: <em>TBD</em></li>
-    <li>Compliance Liaison: <em>TBD</em></li>
-  </ul>
+
+<!-- HERO -->
+<section class="about-hero">
+  <div class="container">
+
+    <div class="hero-head">  <!-- 新增：相对定位容器 -->
+      <p class="eyebrow reveal">Cybersecurity Club</p>
+
+      <h1 class="gradient-title reveal">
+        Exploring the digital frontier.<br>
+        <span class="thin">Securing tomorrow, together.</span>
+      </h1>
+
+      <!-- 斜放的标语：现在“贴着标题”的右侧 -->
+      <div class="hero-slogan reveal" aria-label="We create, defend, attack, destroy for you">
+        <span class="we">We</span>
+        <span id="verbRotator" class="verb" aria-hidden="true">Create</span>
+        <span class="you">you</span>
+      </div>
+
+      <p class="subhead reveal">
+        Learn ethical hacking, defense, and modern security practices — with clarity, integrity, and teamwork.
+      </p>
+    </div>
+
+  </div>
+
+  <div class="hero-grid" aria-hidden="true"></div>
 </section>
+
+
+<!-- MISSION -->
+<section class="container section">
+  <h2 class="section-title reveal">Mission</h2>
+  <div class="prose reveal">
+    <p>Our mission is to inspire and empower students to master cybersecurity skills, build a strong foundation in ethical hacking and defense, and prepare the next generation of digital guardians.</p>
+    <p>We stand at the crossroads of technology and responsibility, cultivating both technical expertise and the integrity to use it wisely.</p>
+  </div>
+</section>
+
+<!-- WHAT WE DO / DON'T -->
+<section class="container section">
+  <div class="split">
+    <div class="card lift reveal">
+      <h3>What We Do</h3>
+      <ul class="checklist">
+        <li>Hands-on Workshops &amp; CTFs — from beginner-friendly picoCTF to advanced challenges, guided labs, and competition prep.</li>
+        <li>Competition Training — CyberPatriot, national and international contests that test skill and teamwork under pressure.</li>
+        <li>Conferences &amp; Knowledge Sharing — insights and takeaways from industry events like BSidesSF, RSA, and DEF CON.</li>
+      </ul>
+    </div>
+    <div class="card lift reveal">
+      <h3>What We Don’t</h3>
+      <ul class="banlist">
+        <li>No unauthorized testing</li>
+        <li>No disruption of school networks</li>
+        <li>No violation of privacy or ethical standards</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- MEETINGS -->
+<section class="container section">
+  <div class="card callout reveal">
+    <h3>Meetings</h3>
+    <p class="mono">Time TBD · Room XXX (TBD)</p>
+    <p>Whether you’re a beginner curious about cybersecurity or an experienced coder, you are welcome. Bring your curiosity, your integrity, and—if possible—your laptop.</p>
+  </div>
+</section>
+
+<!-- LEADERSHIP -->
+<section class="container section">
+  <h2 class="section-title reveal">Leadership &amp; Advisors</h2>
+  <div class="grid-3">
+    <div class="person card reveal">
+      <h4>Faculty Advisor</h4>
+      <p class="muted">TBD</p>
+    </div>
+    <div class="person card reveal">
+      <h4>President (Web Lead)</h4>
+      <p>Tyrell</p>
+    </div>
+    <div class="person card reveal">
+      <h4>Content Lead</h4>
+      <p>Tyrell</p>
+    </div>
+    <div class="person card reveal">
+      <h4>Media Lead</h4>
+      <p>Tyrell</p>
+    </div>
+    <div class="person card reveal">
+      <h4>Compliance Liaison</h4>
+      <p class="muted">TBD</p>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="container section">
+  <h2 class="section-title reveal">Values</h2>
+  <div class="grid-2">
+    <div class="value card reveal"><span class="badge">Clarity</span><p>Focus on practical skills that have real applications.</p></div>
+    <div class="value card reveal"><span class="badge">Responsibility</span><p>Always stay ethical, safe, and compliant.</p></div>
+    <div class="value card reveal"><span class="badge">Collaboration</span><p>Learn faster and achieve more together.</p></div>
+    <div class="value card reveal"><span class="badge">Progress</span><p>Step-by-step improvement through consistent practice.</p></div>
+  </div>
+</section>
+
 {% endblock %}

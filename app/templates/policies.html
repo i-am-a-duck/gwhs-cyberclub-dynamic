@@ -1,19 +1,33 @@
 {% extends "base.html" %}
-{% block title %}Policies · GWHS Cybersecurity Club{% endblock %}
+{% block title %}Policies · Cybersecurity Club{% endblock %}
 {% block content %}
-<section class="container">
-  <h1>Policies</h1>
-  <h2>Ethical Hacking</h2>
-  <p>We teach and practice cybersecurity in lawful, authorized, and ethical contexts only.</p>
-  <h2>Student Data</h2>
-  <ul class="list">
-    <li>Collect only: name, grade, school email via the Join form.</li>
-    <li>Limit access to officer roles who need it.</li>
-  </ul>
-  <h2>Photos & Media</h2>
-  <ul class="list">
-    <li>Publish photos only with explicit consent and per school policy.</li>
-    <li>Centralize approved albums in a public-safe gallery.</li>
-  </ul>
+<section class="container section">
+  <h1 class="section-title gradient-title reveal">Policies</h1>
+
+  <div class="policy card reveal">
+    <h2>Ethical Hacking</h2>
+    <p>We practice cybersecurity only in authorized, educational environments such as online labs, CTF competitions, and guided workshops.</p>
+    <p>Testing school networks, bypassing security controls, or violating privacy is strictly prohibited.</p>
+  </div>
+
+  <div class="policy card reveal">
+    <h2>Student Data</h2>
+    <p>We collect minimal information—name, email, grade, and interests—solely for organizing activities and communication.</p>
+    <p>Data is stored securely in Google Workspace and accessed only by student organizers.</p>
+    <p>We do not share or sell personal information.</p>
+  </div>
+
+  <div class="policy card reveal">
+    <h2>Media &amp; Communications</h2>
+    <p>Photos and recordings are shared only with consent.</p>
+    <p>Members may request removal of their images at any time.</p>
+    <p>Official updates are distributed through email and our communication platform.</p>
+  </div>
+
+  <div class="policy card reveal">
+    <h2>Compliance &amp; Status</h2>
+    <p>This project is student-led and currently independent.</p>
+    <p>On-campus activities will follow school and district rules once official approval is granted.</p>
+  </div>
 </section>
 {% endblock %}
