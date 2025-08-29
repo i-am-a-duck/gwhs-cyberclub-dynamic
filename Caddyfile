@@ -1,15 +1,15 @@
 # Replace example.com with your domain.
-example.com {
+
+synhub.me {
   encode zstd gzip
-  @static {
-    path /static/*
-  }
-  handle @static {
-    root * /app/app/static
-    file_server
-  }
+  
+  handle_path /static/* {
+	root * /app/app/static
+	file_server
+}
   reverse_proxy web:8000
-  header {
-    Permissions-Policy "interest-cohort=()"
-  }
+ }
+
+www.synhub.me {
+	redir https://synhub.me{uri}
 }

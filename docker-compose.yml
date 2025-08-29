@@ -29,6 +29,7 @@ services:
       - ./Caddyfile:/etc/caddy/Caddyfile
       - caddydata:/data
       - caddyconfig:/config
+      - ./app:/app/app:ro
     depends_on:
       - web
     networks: [appnet]
